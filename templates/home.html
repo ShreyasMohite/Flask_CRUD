@@ -1,0 +1,39 @@
+{%extends "base.html" %} {%block content%}
+
+<div class="container">
+    {%for messages in get_flashed_messages()%}
+    <div class="container">
+        <div class="alert alert-warning">
+            <button class="close" data-dismiss="alert">&times;</button> {{messages}}
+        </div>
+    </div>
+
+    {%endfor%}
+    <form action="/" method="POST" class="was-validated">
+
+        <div>
+            <input type="hidden" name="id" id="">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" name="name" id="customControlValidation2" required required>
+            <small class="form-text text-muted">Well never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" id="customControlValidation2" required name="email" required>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1 ">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <a href="{{url_for('Add_User')}}"><button type="submit" class="btn btn-primary">Submit</button></a>
+
+        <a href="{{url_for('View_User')}}"><button type="button" class="btn btn-primary">User</button></a>
+    </form>
+</div>
+
+
+
+
+{%endblock%}

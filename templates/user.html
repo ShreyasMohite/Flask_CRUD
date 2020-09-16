@@ -1,0 +1,44 @@
+{%extends "base.html" %} {%block content%}
+
+<div class="container">
+    {%for messages in get_flashed_messages()%}
+    <div class="container">
+        <div class="alert alert-warning">
+            <button class="close" data-dismiss="alert">&times;</button> {{messages}}
+        </div>
+    </div>
+
+    {%endfor%}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {%for user in user %}
+            <tr>
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}
+                    <a href="{{url_for('Update_User',id=user.id)}}"><button type="button" class="btn btn-warning">Edit</button></a>
+                    <a href="{{url_for('Delete_User',id=user.id)}}"> <button type="button" class="btn btn-info">Delete</button></a>
+                </td>
+
+
+
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+
+
+
+{%endblock%}

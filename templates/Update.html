@@ -1,0 +1,31 @@
+{%extends "base.html" %} {%block content%}
+
+<div class="container">
+
+
+    <form action="{{url_for('Update_User',id=user.id)}}" method="POST" class="was-validated">
+
+        <div>
+            <input type="hidden" name="id" value="{{user.id}}">
+        </div>
+        <div class="form-group ">
+            <label for="exampleInputEmail1 ">Name</label>
+            <input type="text " class="form-control " name="name" id="customControlValidation2 " value="{{user.name}}" required required>
+            <small class="form-text text-muted">Well never share your email with anyone else.</small>
+        </div>
+        <div class="form-group ">
+            <label>Email</label>
+            <input type="email " class="form-control " id="customControlValidation2 " required name="email" value="{{user.email}}" required>
+        </div>
+
+
+        <!---<a href="{{url_for('Update_User',id=user.id)}}">-->
+        <button type="submit " class="btn btn-primary">Update</button>
+        <!--</a>-->
+
+
+
+
+    </form>
+</div>
+{%endblock%}
